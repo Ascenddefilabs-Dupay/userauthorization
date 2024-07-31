@@ -1,0 +1,474 @@
+ /* .container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+}
+
+.walletAddress {
+  font-size: 16px;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.balance {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.actionButton {
+  background-color: #1a73e8; 
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.actionButton span {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  background-color: #1a1d23;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+.bannerText {
+  max-width: 80%;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.activeTab {
+  border-bottom: 2px solid #fff;
+}
+
+.content {
+  min-height: 250px;
+  background-color: #1a1d23;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* .cryptoContent {
+  text-align: center;
+} */
+/* 
+.cryptoContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%; 
+}
+
+
+.cryptoIcons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  height: 35px; 
+}
+
+.cryptoIcon {
+  width: 240px;
+  height: 120px;
+}
+
+.addCryptoButton {
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.footerButton {
+  background: none;
+  border: none;
+  color: #1a73e8; 
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footerButton span {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.bottomBar {
+  background-color: #1a1d23;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+} */ 
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #030303;
+    color: #fff;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .leftSection {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .walletAddress {
+    display: flex;
+    align-items: center;
+    cursor: pointer; /* Optional: show pointer cursor on hover */
+    gap: 5px;
+  }
+  
+  .dropdownIcon {
+    margin-left: auto; /* Pushes the icon to the far right */
+    margin-left: 1px; /* Adjust space between text and icon */
+    
+  }
+  
+  
+  .rightSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .balance {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .actionButton {
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .actionButton span {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  .banner {
+    display: flex;
+    align-items: center;
+    background-color: #1a1d23;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+  
+  .bannerText {
+    max-width: 80%;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .activeTab {
+    border-bottom: 2px solid #fff;
+  }
+  
+  .content {
+    min-height: 250px;
+    background-color: #1a1d23;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  
+  .cryptoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  
+  .cryptoIcons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    height: 35px;
+  }
+  
+  .cryptoIcon {
+    width: 240px;
+    height: 120px;
+  }
+  /* 
+  .addCryptoButton {
+    background-color: #1a73e8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  } */
+  
+  .button-container {
+    display: grid;
+    place-items: center; /* Center horizontally and vertically */
+    height: 100vh;       /* Full viewport height for demonstration */
+  }
+  
+  .addNameStart{
+    font-style: normal;
+    font-size: 21px;
+    color: #fff;
+    border: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    top: 65px;
+    left: 27px;
+  
+  }
+  .addCryptoButton {
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #1a73e8;
+    color: #080808;
+    border: rgb(253, 244, 244);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 60%;
+    position: relative;
+    top: 65px;
+    left: 70px;
+    /* align-self: start; */
+  }
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .footerButton {
+    background: none;
+    border: none;
+    color: #1a73e8;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footerButton span {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  
+  .bottomBar {
+    background-color: #1a1d23;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 50px;
+    left: 12;
+    width: 87%;
+    background-color: #1a1d23;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dropdownContent {
+    padding: 20px;
+  }
+  
+  .dropdownItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .profileIcon {
+    margin-right: 10px;
+    font-size: 30px;
+    position: relative;
+    top: -35px;
+  }
+  .textContainer {
+    flex-grow: 50s; /* Allow text container to take up available space */
+  }
+  
+  .viewprofileButton {
+    margin-right: 20px;
+    margin-top: -5px;
+    align-items: center;
+    font-weight: bold;
+    background-color: rgba(91, 84, 84, 0.447);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Optional: remove border if you don't want one */
+    border-radius: 45px; /* Optional: add border radius for rounded corners */
+    width: 115%;
+    /* gap: 40px; */
+    margin-right: 150px;
+    margin-left: -40px;
+  }
+  .userid{
+    font-weight: bold;
+  }
+  
+  .manageWalletsButton {
+    font-weight: bold;
+    background-color: rgba(91, 84, 84, 0.447);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border: none; /* Optional: remove border if you don't want one */
+    border-radius: 45px; /* Optional: add border radius for rounded corners */
+    width: 100%;
+    /* gap: 40px;
+    margin-right: 10px; */
+  }
+  .settingsIcon {
+    align-items: right;
+    margin-left: 55px; /* Optional: space between text and icon */
+  }
+  .checkIcon {
+    margin-left: 235px;
+    font-size: 30px;
+    position: relative;
+    top: -40px;
+    color: blue;
+  }
