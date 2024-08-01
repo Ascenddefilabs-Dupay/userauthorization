@@ -34,7 +34,7 @@ const WalletInterface = () => {
         // Handle copy to clipboard logic here
         break;
       case 'Settings':
-        // Handle settings logic here
+        router.push('/Dashboard/setting');
         break;
       case 'Notification':
         // Handle notification logic here
