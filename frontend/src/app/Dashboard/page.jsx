@@ -1,9 +1,10 @@
 
 import React from 'react';
-import WalletInterface from './WalletInterface';
+import Home from './Home';
 
 const AddWalletInterfacePage = () => {
-  return( <div>  <WalletInterface  />
+  return( <div>  
+    <Home  />
   </div> );
 };
 

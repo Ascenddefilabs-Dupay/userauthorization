@@ -1,0 +1,108 @@
+   .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Cover the entire height of the screen */
+    background-color: transparent;
+}
+
+.mobile {
+    background-color: #000;
+    padding: 16px;
+}
+
+.content {
+    width: 100%;
+    max-width: 400px;
+    background-color: #000;
+    color: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.backButton {
+    color: #fff;
+    margin-right: 16px;
+}
+
+.title {
+    color: #fff;
+    font-weight: bold;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 240px;
+}
+
+.mainText {
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.addButton {
+    width: 100%;
+    border-radius: 24px;
+    background-color: #0062ff;
+    color: #fff;
+    margin-bottom: 16px;
+    text-transform: none;
+}
+
+.addButton:hover {
+    background-color: #004bcc;
+}
+
+.transferButton {
+    width: 100%;
+    border-radius: 24px;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 16px;
+    text-transform: none;
+}
+
+.transferButton:hover {
+    background-color: #555;
+}
+
+.notice {
+    text-align: center;
+    margin-top: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.link {
+    color: #0062ff;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

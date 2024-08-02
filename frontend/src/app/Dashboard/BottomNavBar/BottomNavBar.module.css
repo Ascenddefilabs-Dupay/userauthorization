@@ -1,0 +1,39 @@
+.bottomNavBar {
+    position: relative;
+    bottom: 5px;
+    margin: 0 auto;
+    width: 400px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    height: 4rem;
+    background-color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #3e3f41;
+    padding: 0 0.5rem;
+    /* margin-left: 340px; */
+  }
+  
+  .navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    width: 100px; /* Adjust this value as needed */
+  }
+  
+  .navItem .label {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .selected {
+    color: #3b82f6; /* Tailwind blue-500 */
+  }
+  
+  .navItem:not(.selected) {
+    color: #9ca3af; /* Tailwind gray-400 */
+  }
+  
