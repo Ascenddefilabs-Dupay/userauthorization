@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faExchangeAlt, faSyncAlt, faPaperPlane, faDownload, faWallet, faListAlt, faCog, faCopy, faBell, faExpand,faQrcode } from '@fortawesome/free-solid-svg-icons';
-import styles from './Home.module.css';
+import styles from './WalletInterface.module.css';
 import { FaUserCircle, FaChevronDown } from 'react-icons/fa';
 import { GoCheck } from "react-icons/go";
 
