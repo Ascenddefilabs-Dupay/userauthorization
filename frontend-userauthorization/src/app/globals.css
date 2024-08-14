@@ -4,11 +4,11 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  /* --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: feSpotLight) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -31,69 +31,3 @@ body {
     text-wrap: balance;
   }
 }
-
-
-html, body {
-  height: 100%;
-  margin: 0;
-} 
-
-
-
-/* styles/globals.css */
-
-/* Tailwind base, components, and utilities */
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
-/* Custom root variables for color schemes */
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-/* Adjust root variables based on color scheme preference */
-/* @media (prefers-color-scheme: light) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-} */
-
-/* Apply global styles */
-/* html, body {
-  height: 100%;
-  margin: 0;
-  font-family: system-ui, sans-serif; 
-} */
-
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center; 
-  overflow: hidden; 
-} */
-
-/* Scrollable content container */
-/* #content {
-  height: 100vh; 
-  overflow-y: auto; 
-  padding: 20px; 
-} */
-
-/* Custom utility classes */
-/* @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */

@@ -31,7 +31,7 @@ export default function HomePage() {
     const [qrData, setQrData] = useState('');
     const [profileImage, setProfileImage] = useState('');
     const router = useRouter();
-    const userId = 'dupC0030';
+    const userId = 'dupC0004';
 
     useEffect(() => {
         fetchUserProfile();
@@ -68,9 +68,19 @@ export default function HomePage() {
     };
 
     const handleTopButtonClick = (button) => {
-        setSelectedButton(button);
-        console.log(button);
+        if (button === 'Buy') {
+            setSelectedButton(button);
+            console.log(button);
+            router.push('/Dashboard/buy_btn');
+        } else if (button === 'Receive') {
+            setSelectedButton(button);
+            console.log(button);
+            router.push('/receive_btn');
+        } else {
+            console.log('Unknown button clicked:', button);
+        }
     };
+    
 
     const handleNavChange = (event, newValue) => {
         setNavValue(newValue);
@@ -83,7 +93,7 @@ export default function HomePage() {
     };
 
     const handleSettings = () => {
-        router.push('/Dashboard/Settings/setting');
+        console.log('Settings button is clicked');
     };
 
     const handleCloseDropdown = () => {
