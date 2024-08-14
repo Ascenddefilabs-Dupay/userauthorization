@@ -11,13 +11,16 @@ import axios from 'axios';
 import Typography from '@mui/material/Typography';
 import { GoCheck } from "react-icons/go";
 import Headerbar from './Headernavbar/headernavbar';
+import { IoCashOutline } from "react-icons/io5";
+import { FaArrowUpLong } from "react-icons/fa6";
+import { FaArrowDownLong } from "react-icons/fa6";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('Crypto');
   const [activeAction, setActiveAction] = useState('');
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [profileImage, setProfileImage] = useState('');
-  const userId = 'dupC0029';
+  const userId = 'dupC0004';
   const router = useRouter();
 
   useEffect(() => {
@@ -56,27 +59,21 @@ const Home = () => {
 
   const handleIconClick = (iconName) => {
     // console.log(`${iconName} button clicked`);
-    switch (iconName) {
+    switch (iconName) { 
       case 'Buy':
+        router.push('/Dashboard/buy_btn');
+        break;
       case 'Swap':
-      case 'Bridge':
+        router.push('/swap_btn');
+        break;
+      case 'Cashout':
+        router.push('/cashout_btn');
+        break;
       case 'Send':
-        router.push('/Dashboard/addcrypto_btn');
+        router.push('/send_btn');
         break;
       case 'Receive':
-        router.push('Dashboard/receive_btn');
-        break;
-      case 'Copy to Clipboard':
-        // Handle copy to clipboard logic here
-        break;
-      case 'Settings':
-        // Handle settings logic here
-        break;
-      case 'Notification':
-        // Handle notification logic here
-        break;
-      case 'Enlarge':
-        // Handle enlarge logic here
+        router.push('/receive_btn');
         break;
       default:
         break;
@@ -91,6 +88,10 @@ const Home = () => {
   const handleManageWallets = () => {
     router.push('/Dashboard/addmanagewallets_btn'); // Adjust the route as needed
   };
+
+  const handlebuyclick = () => {
+    router.push('/Dashboard/BottomNavBar/profileicon_btn')
+  }
 
   const handleCopyUserId = () => {
     navigator.clipboard.writeText(userId);
@@ -131,9 +132,16 @@ const Home = () => {
           </header>
         </div>
       </div>
-      <div className={styles.balance}>$0.00</div>
+      <div className={styles.balance}>
+
+      <button onClick={handlebuyclick}>
+        ₹0.00
+      </button>
+
+
+      </div>
       <div className={styles.actions}>
-        {['Buy', 'Swap', 'Bridge', 'Send', 'Receive'].map(action => (
+        {[  'Buy', 'Swap', 'Send', 'Receive' , 'Cashout'].map(action => (
           <button
             key={action}
             className={`${styles.actionButton} ${activeAction === action ? styles.activeAction : ''}`}
@@ -142,7 +150,8 @@ const Home = () => {
               handleIconClick(action);
             }}
           >
-            <FontAwesomeIcon icon={getIcon(action)} />
+             {getIcon(action)}
+            {/* <FontAwesomeIcon icon={getIcon(action)} /> */}
             <span>{action}</span>
           </button>
         ))}
@@ -226,24 +235,25 @@ const Home = () => {
 const getIcon = (action) => {
   switch (action) {
     case 'Buy':
-      return faPlus;
+      return <FontAwesomeIcon icon={faPlus} />;
     case 'Swap':
-      return faExchangeAlt;
-    case 'Bridge':
-      return faSyncAlt;
+      return <FontAwesomeIcon icon={faExchangeAlt} />;
+    case 'Cashout':
+      return <IoCashOutline style={{fontSize: '30px'}} />;
     case 'Send':
-      return faPaperPlane;
+      return <FaArrowUpLong />;
     case 'Receive':
-      return faDownload;
+      return <FaArrowDownLong />;
     case 'Assets':
-      return faWallet;
+      return <FontAwesomeIcon icon={faWallet} />;
     case 'Transactions':
-      return faListAlt;
+      return <FontAwesomeIcon icon={faListAlt} />;
     case 'Settings':
-      return faCog;
+      return <FontAwesomeIcon icon={faCog} />;
     default:
       return null;
   }
 };
+
 
 export default Home;

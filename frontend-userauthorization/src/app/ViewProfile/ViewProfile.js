@@ -97,7 +97,7 @@ const UserProfile = () => {
   const [users, setUserProfile] = useState({});
   const [profileImage, setProfileImage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const userId = 'dupC0030'; // Replace with sessionStorage['first_name'] or appropriate user ID retrieval
+  const userId = 'dupC0004'; // Replace with sessionStorage['first_name'] or appropriate user ID retrieval
   const router = useRouter(); // Initialize useRouter
 
   const fetchUserProfile = async () => {
@@ -306,3 +306,5 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+
