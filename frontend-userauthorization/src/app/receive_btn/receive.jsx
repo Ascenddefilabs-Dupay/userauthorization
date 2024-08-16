@@ -259,14 +259,14 @@ export default function Receive() {
             {filteredSections.find(section => section.id === 'buyCrypto' && section.visible) && (
                 <div 
                     className={`${styles.buyButtonDiv} ${styles.hoverableDiv}`}
-                    style={{ margin: '0 30px', border: '1px solid white', width: '320px', height: '40px', borderRadius: '10px', padding: '8px', justifyContent: 'space-between', position: 'relative', top:'35px' }}
+                    style={{ margin: '0 30px', border: '1px solid white', width: '330px', height: '40px', borderRadius: '10px', padding: '8px', justifyContent: 'space-between', position: 'relative', top:'35px' }}
                 >
                     <button 
                         onClick={() => router.push('/Dashboard/buy_btn')} // Navigate to the buy page
                     >
                         Buy Crypto
                     </button>
-                    <FontAwesomeIcon icon={faAngleRight} style={{ marginLeft: '180px', color: 'white' }} />
+                    <FontAwesomeIcon icon={faAngleRight} style={{ marginLeft: '190px', color: 'white' }} />
                 </div>
             )}
         </div>

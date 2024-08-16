@@ -159,11 +159,12 @@
 }
 
 .ethereumDiv {
+    width: 100%;
     cursor: pointer;
 }
 
 .bitcoinDiv {
-    
+    width: 100%;
     cursor: pointer;
 }
 

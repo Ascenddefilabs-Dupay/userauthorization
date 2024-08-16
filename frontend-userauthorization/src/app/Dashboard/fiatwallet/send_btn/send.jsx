@@ -7,13 +7,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 
-const buypage = () => {
+const sendpage = () => {
 
     const router = useRouter();
 
     const handleBackClick = () => {
         console.log('Back button clicked');
-        router.push('/Dashboard')
+        router.push('/Dashboard/fiatwallet')
       };
   return (
     <div>
@@ -22,7 +22,7 @@ const buypage = () => {
         <IconButton className="backarrow" onClick={handleBackClick} sx={{ color: 'white' }}>
             <ArrowBackIcon />
         </IconButton>
-        Buy page
+        Send page
       </div>
       
       </div>
@@ -30,4 +30,4 @@ const buypage = () => {
   )
 }
 
-export default buypage
+export default sendpage
