@@ -93,7 +93,7 @@ export default function HomePage() {
     };
 
     const handleSettings = () => {
-        console.log('Settings button is clicked');
+        router.push('/Dashboard/Settings');
     };
 
     const handleCloseDropdown = () => {

@@ -27,3 +27,24 @@ class CustomUser(models.Model):
     
     class Meta:
         db_table = 'users'
+
+class Notificationthings(models.Model):
+    user_id = models.CharField(max_length=255, unique=True, primary_key=True, default='dupA0005')
+    product_announcement = models.BooleanField(default=True)
+    insights_tips = models.BooleanField(default=True)
+    special_offers = models.BooleanField(default=True)
+    price_alerts = models.BooleanField(default=True)
+    account_activity = models.BooleanField(default=True)
+    messages = models.BooleanField(default=True)
+    
+    class Meta:
+        db_table = 'notification_settings'
+
+
+class Password(models.Model):
+
+    password_creation = models.CharField(max_length=6)
+    retype_password = models.CharField(max_length=6)
+    
+    class Meta:
+        db_table = 'app_password'
