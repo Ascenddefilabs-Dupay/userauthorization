@@ -196,7 +196,7 @@ export default function Receive() {
                     style={{ display: 'flex', margin: '25px 0 0 30px', border: '1px solid gray', width: '330px', alignItems: 'center', padding: '20px', borderRadius: '12px' }}
                 >
                     <div>
-                        <img src="./ethereum_image.jpg" alt="Ethereum_image" style={{ height: '35px', width: '35px', borderRadius: '50px', border: '1px solid white' }} />
+                        <img src="../ethereum_image.jpg" alt="Ethereum_image" style={{ height: '35px', width: '35px', borderRadius: '50px', border: '1px solid white' }} />
                     </div>
                     <div style={{ marginLeft: '20px' }}>
                         <p style={{ fontSize: '14px' }}>Ethereum address</p>
@@ -230,7 +230,7 @@ export default function Receive() {
                     style={{ display: 'flex', margin: '25px 0 0 30px', border: '1px solid gray', width: '330px', alignItems: 'center', padding: '20px', borderRadius: '12px' }}
                 >
                     <div>
-                        <img src="./bitcoin_img1.png" alt="bitcoin_image" style={{ height: '35px', width: '35px', borderRadius: '50px', border: '1px solid white', objectFit: 'cover' }} />
+                        <img src="../bitcoin_img1.png" alt="bitcoin_image" style={{ height: '35px', width: '35px', borderRadius: '50px', border: '1px solid white', objectFit: 'cover' }} />
                     </div>
                     <div style={{ marginLeft: '20px' }}>
                         <p style={{ fontSize: '14px' }}>Bitcoin address</p>

@@ -21,7 +21,9 @@ export default function Send() {
             display: 'flex', 
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '20px'
+            padding: '20px',
+            fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
+
         }}>
             <MdOutlineCancel 
                 onClick={handleBackClick}  
@@ -52,9 +54,9 @@ export default function Send() {
                 onClick={() => router.push('/Crypto_Wallet/Dashboard')}
                 style={{
                     padding: '10px',
-                    backgroundColor: 'rgb(33, 98, 238)',
+                    background: 'linear-gradient(90deg, #007bff9f, #800080)',
                     color: 'white',
-                    borderRadius: '25px',
+                    borderRadius: '5px',
                     fontWeight: 'bold',
                     border: 'none',
                     width: '90%',
