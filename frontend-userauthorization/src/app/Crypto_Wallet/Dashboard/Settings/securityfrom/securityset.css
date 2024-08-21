@@ -278,9 +278,8 @@
     width: 400px;
     margin: 10px auto;
     padding: 16px;
-    background-color: #1a1a1a;
+    background-color: black;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     font-family: Arial, sans-serif;
     color: #fff;
     height: 550px; 
@@ -324,7 +323,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #1a1a1a;
+    background-color: black;
     color: white; 
     border: none;
     border-radius: 4px;
@@ -385,7 +384,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #1a1a1a;
+    background-color: black;
     color: white; 
     border: none;
     border-radius: 4px;
@@ -443,7 +442,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: black;
     border: none;
     border-radius: 5px;
     padding: 5px;
@@ -487,7 +486,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: black;
     border: none;
     border-radius: 5px;
     padding: 5px;

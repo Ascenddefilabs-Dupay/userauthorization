@@ -14,6 +14,7 @@ import Headerbar from './Headernavbar/headernavbar';
 import { IoCashOutline } from "react-icons/io5";
 import { FaArrowUpLong } from "react-icons/fa6";
 import { FaArrowDownLong } from "react-icons/fa6";
+import { TbBrandBlackberry } from 'react-icons/tb';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('Crypto');
@@ -168,10 +169,14 @@ const Home = () => {
               setActiveAction(action);
               handleIconClick(action);
             }}
-          >
+            style={{
+              background: 'linear-gradient(90deg, #007bff9f, #800080)',
+            }}
+            >
             {getIcon(action)}
             <span>{action}</span>
-          </button>
+        </button>
+        
         ))}
       </div>
       <hr />

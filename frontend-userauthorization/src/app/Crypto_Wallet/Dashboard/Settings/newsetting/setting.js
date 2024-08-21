@@ -15,6 +15,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const Settings = () => {
@@ -23,6 +24,11 @@ const Settings = () => {
 
   const handleNavigation = () => {
     router.push('/Crypto_Wallet/Dashboard/Settings/network_set');
+  };
+
+  const settinghandleBackClick = () => {
+    let redirectUrl = '/Crypto_Wallet/Dashboard/BottomNavBar/profileicon_btn';
+    router.push(redirectUrl);
   };
 
   const handleSwitch = (event) => {
@@ -36,8 +42,9 @@ const Settings = () => {
     router.push(redirectUrl);
   };
   // const handleDeveloper = () => {
-  //   let redirectUrl = '/Crypto_Wallet/Dashboard/developerform';
+  //   let redirectUrl = 'http://localhost:3000//Dashboard/developerform';
   //   router.push(redirectUrl);
+
   // };
   const handleDisplay = () => {
     let redirectUrl = '/Crypto_Wallet/Dashboard/Settings/displayform';
@@ -55,7 +62,8 @@ const Settings = () => {
     <div className='container'>
       <div className="card0">
         <div className="settings">
-          <h1>Settings</h1>
+          <ArrowBackIcon className="setting_back_icon" onClick={settinghandleBackClick} />
+          <span className='settings_back_label'>Setting</span>
         </div>
         <div className="cards0">
           <div className="card"> 
@@ -122,9 +130,9 @@ const Settings = () => {
           <div className="card5">
             <button className="securities" onClick={handleSecurity}>
               <LockIcon className="lock_icon" />
-              <div className="labels1">
-                <span className="security">Security </span>
-                <span className="security1">Lock timer, Password</span>
+              <div className="handle_securty">
+                <span className="handle_security">Security </span>
+                <span className="handle_security1">Lock timer, Password</span>
               </div>
               <ChevronRightIcon className="righticon2" />
             </button>
