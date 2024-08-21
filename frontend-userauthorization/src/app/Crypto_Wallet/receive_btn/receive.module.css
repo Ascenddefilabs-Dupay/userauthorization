@@ -5,13 +5,15 @@
     top: 2px;
     margin: 0 auto;
     color: white;
-    min-height: 100vh;
+    height: 100%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     padding: 5px;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
+
 }
 
 .profileIcon {

@@ -21,8 +21,9 @@ export default function send(){
         <div style={{backgroundColor : 'black', width: '400px', 
                     margin: '0 auto', height: '100vh', color: 'white',
                     borderRadius: '12px',top: '1px' , alignItems: 'center'}}>
-                <ArrowBackIcon  onClick={handleBackClick}  style={{margin : '15px 10px'}}/>
-                <h1 style= {{marginTop: '-40px', marginLeft: '45px' , cursor: 'pointer'}}>Send</h1>
+                <ArrowBackIcon  onClick={handleBackClick}  style={{margin : '15px 10px', cursor: 'pointer'}}/>
+                <h1 style= {{marginTop: '-40px', marginLeft: '45px' , cursor: 'pointer',  fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
+        }}>Send</h1>
 
             <div style={{alignItems: 'center'}}>
             <img src="/send_image.jpg" alt="Send_Image" style={{height: '180px', width: '180px', marginLeft:'120px', marginTop: '20px'}}/>
@@ -44,9 +45,9 @@ export default function send(){
                         style={{
                             marginTop: '85px',
                             padding: '10px',
-                            backgroundColor: 'rgb(33, 98, 238)',
+                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
                             color: 'white',
-                            borderRadius: '25px',
+                            borderRadius: '5px',
                             fontWeight: 'bold',
                             border: 'none',
                             width: '90%',

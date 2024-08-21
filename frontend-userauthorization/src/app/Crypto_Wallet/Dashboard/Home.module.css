@@ -1,4 +1,4 @@
-.container {
+ .container {
   position: relative;
   max-width: 400px;
   top: 1px;
@@ -7,11 +7,11 @@
   background-color: #030303;
   color: #fff;
   border-radius: 12px;
-  font-family: Arial, sans-serif;
   bottom: 20px;
-  /* left: 400px; */
   height: 100vh;
   margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
+
 }
 
 .header {
@@ -37,7 +37,6 @@
 .profileImagesrc{
   margin-bottom: 65px;
   font-size: 40px;
-  /* margin-right: px; */
   left: 10px;
 }
 .walletAddress {
@@ -54,12 +53,8 @@
 }
 
 .rightSection {
-  /* display: flex; */
-  /* align-items: center; */
-  /* gap: 10px; */
   cursor: pointer;
   margin-right: 150px;
-  /* margin: 0 50px 0px; */
 }
 .balance {
   font-size: 29px;
@@ -75,9 +70,8 @@
 }
 
 .actionButton {
-  background-color: #1a73e8;
-  color: #000000;
-  border: 1px solid blue;
+  background: linear-gradient(90deg, #007bff9f, #800080);
+  color: #ffffff;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -164,11 +158,10 @@
 }
 
 .addCryptoButton {
-  background-color: #1a73e8;
-  color: #fff;
+  background: linear-gradient(90deg, #007bff9f, #800080);
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
-  border-radius: 20px;
   width: 50px;
   cursor: pointer;
 } 
@@ -183,7 +176,7 @@
   font-style: normal;
   font-size: 21px;
   font-weight: 600;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica","Arial",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
   color: #fff;
   border: black;
   padding: 10px 20px;
@@ -197,9 +190,9 @@
 .addCryptoButton {
   font-weight: bold;
   font-size: 16px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica","Arial",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  background-color: #1976d2;
-  color: #080808;
+  font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
+  background: linear-gradient(90deg, #007bff9f, #800080);
+  color: #ffffff;
   border: rgb(253, 244, 244);
   padding: 10px 20px;
   border-radius: 50px;
@@ -209,6 +202,7 @@
   top: 65px;
   left: 5px;
   align-self: start; 
+  border-radius: 5px;
 }
 .footer {
   display: flex;
@@ -285,13 +279,13 @@
   margin-top: -5px;
   align-items: center;
   font-weight: bold;
-  background-color: rgba(91, 84, 84, 0.447);
+  background: linear-gradient(90deg, #007bff9f, #800080);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px; 
   border: none;
-  border-radius: 45px; 
+  border-radius: 5px; 
   width: 115%;
   gap: 40px; 
   margin-right: 150px;
@@ -303,16 +297,17 @@
 
 .manageWalletsButton {
   font-weight: bold;
-  background-color: rgba(91, 84, 84, 0.447);
+  background: linear-gradient(90deg, #007bff9f, #800080);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px; 
   border: none; 
-  border-radius: 45px; 
-  width: 100%;
+  border-radius: 5px; 
+  width: 105%;
   gap: 40px;
   margin-right: 20px; 
+  margin-left: -8px;
 }
 .settingsIcon {
   align-items: right;
@@ -338,3 +333,62 @@
 }
 
 
+.tabContainer {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tabContainer button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+/* Container for buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Container for each button */
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+/* Styling for each button */
+.walletButton {
+  background: linear-gradient(90deg, #007bff9f, #800080);
+  padding-top: 10px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  flex: 1 1 calc(20% - 10px); /* Flex to wrap and adjust button width */
+}
+
+/* Icon styling */
+.icon {
+  font-size: 18px; /* Adjust icon size */
+  color: #ffffff; /* Icon color */
+}
+
+/* Label styling */
+.buttonLabel {
+  font-size: 11px; /* Adjust label font size */
+  font-weight: bold;
+  color: #ffffff; /* Label color */
+  padding-bottom: 7px;
+}

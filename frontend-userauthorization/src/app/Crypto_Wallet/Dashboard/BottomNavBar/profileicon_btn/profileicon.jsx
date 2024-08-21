@@ -134,7 +134,7 @@ export default function HomePage() {
                     </div>
                     <div className={styles.iconGroup}>
                         <FontAwesomeIcon icon={faCopy} onClick={handleCopyEmail} />
-                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />git push
+                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />
 
                     </div>
                 </div>
@@ -187,14 +187,29 @@ export default function HomePage() {
                         {!scannerOpen && (
                             <div className={styles.buttonGroup}>
                                 <div className={styles.buttonContainer}>
-                                    <Fab size="small" color="primary" onClick={() => handleTopButtonClick('Buy')}>
-                                        <FaPlus fontSize="18px" color="white" />
-                                    </Fab>
-                                    <Typography variant="caption">Buy</Typography>
-                                </div>
+                                <Fab
+                                size="small"
+                                onClick={() => handleTopButtonClick('Buy')}
+                                style={{
+                                    background: 'linear-gradient(90deg, #007bff9f, #800080)',
+                                    color: 'white'
+                                }}
+                                >
+                                    <FaPlus fontSize="18px" />
+                                </Fab>
+                                <Typography variant="caption">Buy</Typography>
+                            </div>
+
                                 <div className={styles.buttonContainer}>
-                                    <Fab size="small" color="primary" onClick={() => handleTopButtonClick('Receive')}>
-                                        <FaArrowDown fontSize="20px" color="white" />
+                                <Fab
+                                    size="small"
+                                    onClick={() => handleTopButtonClick('Buy')}
+                                    style={{
+                                        background: 'linear-gradient(90deg, #007bff9f, #800080)',
+                                        color: 'white'
+                                    }}
+                                    >
+                                        <FaArrowDown fontSize="18px" />
                                     </Fab>
                                     <Typography variant="caption">Receive</Typography>
                                 </div>
