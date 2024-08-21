@@ -7,10 +7,12 @@
   max-width: 400px;
   margin: 0 auto;
   font-size: 14px;
-  height: 90vh;
+  height: 100vh;
   border-radius: 8px;
   box-sizing: border-box; /* Includes padding in the width */
   overflow-x: hidden; /* Prevents horizontal overflow */
+  font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
+
 }
 
 /* Title container styles */

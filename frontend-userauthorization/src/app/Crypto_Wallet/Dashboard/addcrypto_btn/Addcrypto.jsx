@@ -14,7 +14,7 @@ const AddCrypto = () => {
   };
 
   const handleAddCryptoClick = () => {
-    console.log('Add crypto with Coinbase Onramp clicked');
+    console.log('Add crypto with Dupay Onramp clicked');
   };
 
   const handleTransferClick = () => {
@@ -38,6 +38,8 @@ const AddCrypto = () => {
         padding: 2,
         margin: '0 auto', // Center the box horizontally
         boxSizing: 'border-box', // Include padding in the element's total width and height
+        fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
+
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -60,10 +62,10 @@ const AddCrypto = () => {
         />
       </Box>
       <Typography   variant="h6" sx={{ textAlign: 'center', fontWeight: 'bold',fontSize: '22px', color: '#fff',
-             marginLeft: 0,marginTop: 0, flexGrow: 1  }} >  Buy or transfer from Coinbase 
+             marginLeft: 0,marginTop: 0, flexGrow: 1  }} >  Buy or transfer from Dupay 
          </Typography>
          <Typography variant="body2" sx={{ textAlign: 'center' ,color: 'gray', marginBottom: 5 }}>
-            You can add crypto from your Coinbase account or another wallet.
+            You can add crypto from your Dupay account or another wallet.
         </Typography>
 
       <Button
@@ -74,13 +76,11 @@ const AddCrypto = () => {
           marginBottom: 2,
           marginTop: -3,
           width: '80%', 
-          borderRadius: 12,
-          '&:hover': { 
-            backgroundColor: '#1976d2' 
-          } 
+          background: 'linear-gradient(90deg, #007bff9f, #800080)',
+          borderRadius: '5px',
         }}
       >
-        Add crypto with Coinbase Onramp
+        Add crypto with Dupay Onramp
       </Button>
       <Button
         variant="outlined"
@@ -88,13 +88,10 @@ const AddCrypto = () => {
         onClick={handleTransferClick}
         sx={{ 
           color: '#fff', 
-          borderColor: '#fff', 
+          borderColor: '#000', 
           width: '80%', 
-          borderRadius: 12,
-          '&:hover': { 
-            backgroundColor: '#333', 
-            borderColor: '#333'
-          } 
+          background: 'linear-gradient(90deg, #007bff9f, #800080)',
+          borderRadius: '5px',
         }}
       >
         Transfer from another wallet

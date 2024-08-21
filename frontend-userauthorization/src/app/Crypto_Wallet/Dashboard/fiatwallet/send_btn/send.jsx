@@ -13,7 +13,7 @@ const sendpage = () => {
 
     const handleBackClick = () => {
         console.log('Back button clicked');
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet')
+        router.push('/Crypto_Wallet/Dashboard')
       };
   return (
     <div>

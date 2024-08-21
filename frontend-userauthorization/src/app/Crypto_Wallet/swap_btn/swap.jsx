@@ -27,12 +27,14 @@ export default function Swap() {
             top: '1px',
             margin: '0 auto',
             color: 'white',
-            minHeight: '80vh',
+            height: '100vh',
             borderRadius: '15px',
             display: 'flex',
             flexDirection: 'column',
             overflowY: 'auto',
             cursor: 'pointer',
+            fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
+
         }}>
             <div style={{ flex: '1' }}> 
                 <ArrowBackIcon onClick={handleBackClick} style={{ margin: '10px 15px' }} />
@@ -89,13 +91,13 @@ export default function Swap() {
                         style={{
                             marginBottom: '10px',
                             padding: '10px',
-                            backgroundColor: 'rgb(33, 98, 238)',
+                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
                             color: 'white',
-                            borderRadius: '25px',
+                            borderRadius: '5px',
                             fontWeight: 'bold',
                             border: 'none',
                             width: '100%'
-                        }}
+                          }}
                     >
                         Add crypto to your wallet
                     </button>
@@ -105,10 +107,10 @@ export default function Swap() {
                         onClick={handleLearnMoreClick}
                         style={{
                             padding: '10px',
-                            backgroundColor: 'rgb(50, 53, 61)',
+                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
                             color: 'white',
                             fontWeight: 'bold',
-                            borderRadius: '25px',
+                            borderRadius: '5px',
                             border: 'none',
                             width: '100%'
                         }}
