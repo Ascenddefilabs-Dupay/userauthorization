@@ -14,7 +14,7 @@
 
 
 import React from 'react';
-import Home from './Dashboard/Home';
+import Home from './Crypto_Wallet/Dashboard/Home';
 
 const AddWalletInterfacePage = () => {
   return( <div>  

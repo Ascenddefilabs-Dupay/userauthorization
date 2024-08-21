@@ -22,17 +22,12 @@ const Settings = () => {
   const [simpleMode, setSimpleMode] = useState(false);
 
   const handleNavigation = () => {
-<<<<<<<< HEAD:frontend-userauthorization/src/app/Crypto_Wallet/Dashboard/Settings/newsetting/setting.js
     router.push('/Crypto_Wallet/Dashboard/Settings/network_set');
-========
-    router.push('/Dashboard/Settings/network_set');
->>>>>>>> 9014de0d7185c0816795598317f08f90d5d007d1:frontend-userauthorization/src/app/Dashboard/Settings/newsetting/setting.js
   };
 
   const handleSwitch = (event) => {
     setSimpleMode(event.target.checked);
     if (event.target.checked) {
-<<<<<<<< HEAD:frontend-userauthorization/src/app/Crypto_Wallet/Dashboard/Settings/newsetting/setting.js
       router.push('/Crypto_Wallet/Dashboard/Settings/switchform');
     }
   };
@@ -54,29 +49,6 @@ const Settings = () => {
   };
   const handleNotification = () => {
     let redirectUrl = '/Crypto_Wallet/Dashboard/Settings/notificationfrom';
-========
-      router.push('/Dashboard/Settings/switchform');
-    }
-  };
-  const handleSignOut = () => {
-    let redirectUrl = '/Dashboard/Settings/signoutform';
-    router.push(redirectUrl);
-  };
-  // const handleDeveloper = () => {
-  //   let redirectUrl = 'http://localhost:3000//Dashboard/developerform';
-  //   router.push(redirectUrl);
-  // };
-  const handleDisplay = () => {
-    let redirectUrl = '/Dashboard/Settings/displayform';
-    router.push(redirectUrl);
-  };
-  const handleSecurity = () => {
-    let redirectUrl = '/Dashboard/Settings/securityfrom';
-    router.push(redirectUrl);
-  };
-  const handleNotification = () => {
-    let redirectUrl = '/Dashboard/Settings/notificationfrom';
->>>>>>>> 9014de0d7185c0816795598317f08f90d5d007d1:frontend-userauthorization/src/app/Dashboard/Settings/newsetting/setting.js
     router.push(redirectUrl);
   }
   return (
