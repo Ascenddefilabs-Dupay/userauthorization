@@ -6,32 +6,23 @@ import {
     AppBar, Toolbar, Button, Container, Card, CardContent, Fab, IconButton, Typography
 } from '@mui/material';
 import { AccountBalanceWallet, Settings, SwapHoriz, ContentCopy } from '@mui/icons-material';
+import { FiGlobe } from 'react-icons/fi';
+import { BiMessageRounded } from "react-icons/bi";
 import { FaCheck, FaPlus, FaQrcode, FaArrowDown, FaUserCircle, FaChevronDown } from 'react-icons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IoSearch } from "react-icons/io5";
+import { RiPieChartFill } from "react-icons/ri";
 import { faGear, faCopy } from '@fortawesome/free-solid-svg-icons';
+
 import QrScanner from 'react-qr-scanner';
 import styles from './profileicon.module.css';
-import { Box } from '@mui/material';
 import Draggable, { DraggableCore } from 'react-draggable';
-import { styled } from '@mui/system';
 
-const UserProfile = ({ profileImage }) => {
-    return profileImage ? (
-        <img src={profileImage} alt="Profile" style={{ width: '35px', height: '35px', borderRadius: '50%', objectFit: 'cover', marginRight: '5px', marginTop: '8px', border: '2px solid white' }} />
-    ) : (
-        <FaUserCircle style={{ fontSize: '30px', marginRight: '5px', marginTop: '8px' }} />
-    );
-};
-
-export default function HomePage() {
-    const [selectedButton, setSelectedButton] = useState('');
-    const [navValue, setNavValue] = useState(0);
-    const [dropdownVisible, setDropdownVisible] = useState(false);
-    const [scannerOpen, setScannerOpen] = useState(false);
-    const [qrData, setQrData] = useState('');
+const UserProfile = () => {
+    const [user, setUserProfile] = useState({});
     const [profileImage, setProfileImage] = useState('');
     const router = useRouter();
-    const userId = 'dupC0025';
+    const userId = 'dupC0004';
 
     useEffect(() => {
         fetchUserProfile();
@@ -40,6 +31,7 @@ export default function HomePage() {
     const fetchUserProfile = async () => {
         try {
             const response = await axios.get(`http://localhost:8000/api/profile/${userId}/`);
+            setUserProfile(response.data);
             if (response.data.user_profile_photo) {
                 const baseURL = 'http://localhost:8000/profile_photos';
                 let imageUrl = '';
@@ -63,38 +55,43 @@ export default function HomePage() {
         }
     };
 
+    return (
+        <div>
+            {/* User profile component content */}
+        </div>
+    );
+};
+
+export default function HomePage() {
+    const [selectedButton, setSelectedButton] = useState('');
+    const [navValue, setNavValue] = useState(0);
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [scannerOpen, setScannerOpen] = useState(false);
+    const [qrData, setQrData] = useState('');
+    const router = useRouter();
+
     const toggleDropdown = () => {
         setDropdownVisible(prevState => !prevState);
     };
 
     const handleTopButtonClick = (button) => {
-        if (button === 'Buy') {
-            setSelectedButton(button);
-            console.log(button);
-            router.push('/Crypto_Wallet/Dashboard/buy_btn');
-        } else if (button === 'Receive') {
-            setSelectedButton(button);
-            console.log(button);
-            router.push('/Crypto_Wallet/receive_btn');
-        } else {
-            console.log('Unknown button clicked:', button);
-        }
+        setSelectedButton(button);
+        console.log(button);
     };
-    
 
     const handleNavChange = (event, newValue) => {
         setNavValue(newValue);
-        router.push('/Crypto_Wallet/Dashboard');
+        router.push('/Dashboard');
     };
 
     const handleCopyEmail = () => {
-        navigator.clipboard.writeText(userId);
-        console.log('userId copied to clipboard');
+        navigator.clipboard.writeText('srinivas...kar.cb.id');
+        console.log('Email copied to clipboard');
     };
 
     const handleSettings = () => {
-        router.push('/Crypto_Wallet/Dashboard/Settings');
-        console.log('Settings button is clicked');
+        router.push('/Dashboard/Settings/newsetting');
+        
     };
 
     const handleCloseDropdown = () => {
@@ -126,16 +123,13 @@ export default function HomePage() {
             <div className={styles.container}>
                 <div className={styles.emailBar}>
                     <div className={styles.walletAddress} onClick={toggleDropdown}>
-                        <UserProfile profileImage={profileImage} className = {styles.profileIcon}/>
-                        <Typography variant="h9" style={{ color: '#ffffff' , fontWeight: 'bold'}}>
-                            {userId}
-                        </Typography>
+                        <FaUserCircle />
+                        srinivass...cb.id
                         <FaChevronDown className={styles.dropdownIcon} />
                     </div>
                     <div className={styles.iconGroup}>
                         <FontAwesomeIcon icon={faCopy} onClick={handleCopyEmail} />
-                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />git push
-
+                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />
                     </div>
                 </div>
 
@@ -145,21 +139,17 @@ export default function HomePage() {
                             <div className={styles.dropdownHeader}>Wallets</div>
                             <hr />
                             <div className={styles.dropdownItem}>
-                                <UserProfile profileImage={profileImage} className = {styles.profileIcon2}/>
+                                <FaUserCircle className={styles.profileIcon} />
                                 <div className={styles.textContainer}>
-                                    <div className={styles.userid}>
-                                        <Typography variant="h9" style={{ color: '#ffffff' }}>
-                                            {userId}
-                                        </Typography>
-                                    </div>
+                                    <div className={styles.userid}>srinivas7420.cb.id</div>
                                     <div>₹0.00</div>
                                 </div>
                                 <FaCheck className={styles.checkIcon} />
                             </div>
-                            <Button className={styles.viewprofileButton} onClick={() => { handleCloseDropdown(); router.push('/Crypto_Wallet/Dashboard/viewprofile_btn'); }}>
+                            <Button className={styles.viewprofileButton} onClick={() => { handleCloseDropdown(); router.push('/Dashboard/viewprofile_btn'); }}>
                                 View profile
                             </Button>
-                            <Button className={styles.manageWalletsButton} onClick={() => { handleCloseDropdown(); router.push('/Crypto_Wallet/Dashboard/addmanagewallets_btn'); }}>
+                            <Button className={styles.manageWalletsButton} onClick={() => { handleCloseDropdown(); router.push('/Dashboard/addmanagewallets_btn'); }}>
                                 Add & manage wallets
                                 <Settings />
                             </Button>
@@ -223,6 +213,14 @@ export default function HomePage() {
                         </CardContent>
                     </Card>
                 </Container>
+
+                {/* <BottomNavigation value={navValue} onChange={handleNavChange} showLabels className={styles.bottomNavigation}>
+                    <BottomNavigationAction label="Assets" icon={<RiPieChartFill />} className={navValue === 0 ? styles.bottomNavigationActionSelected : styles.bottomNavigationAction} style={{ fontSize: 23 }} />
+                    <BottomNavigationAction label="Transactions" icon={<SwapHoriz />} className={navValue === 1 ? styles.bottomNavigationActionSelected : styles.bottomNavigationAction} />
+                    <BottomNavigationAction label="Browser" icon={<FiGlobe />} className={navValue === 2 ? styles.bottomNavigationActionSelected : styles.bottomNavigationAction} style={{ fontSize: 23 }} />
+                    <BottomNavigationAction label="Explorer" icon={<IoSearch />} className={navValue === 3 ? styles.bottomNavigationActionSelected : styles.bottomNavigationAction} style={{ fontSize: 23 }} />
+                    <BottomNavigationAction label="Settings" icon={<Settings />} className={navValue === 4 ? styles.bottomNavigationActionSelected : styles.bottomNavigationAction} />
+                </BottomNavigation> */}
             </div>
         </>
     );
