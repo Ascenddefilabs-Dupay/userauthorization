@@ -75,9 +75,9 @@
 }
 
 .actionButton {
-  background-color: #1a73e8;
-  color: #000000;
+  color: whitesmoke;
   border: 1px solid blue;
+  background: linear-gradient(90deg, #007bff9f, #800080);
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -164,7 +164,7 @@
 }
 
 .addCryptoButton {
-  background-color: #1a73e8;
+  background: linear-gradient(90deg, #007bff9f, #800080);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -199,7 +199,7 @@
   font-size: 16px;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica","Arial",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   background-color: #1976d2;
-  color: #080808;
+  color: white;
   border: rgb(253, 244, 244);
   padding: 10px 20px;
   border-radius: 50px;
