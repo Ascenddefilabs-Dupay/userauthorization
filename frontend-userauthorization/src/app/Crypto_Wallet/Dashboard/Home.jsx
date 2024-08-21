@@ -420,16 +420,20 @@ const Home = () => {
   const handleButtonClick = (buttonName) => {
     switch (buttonName) {
       case 'Add Bank':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/addbank_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/addbank_btn');
+        window.location.href = 'http://localhost:3005/AddBanks';
         break;
       case 'Deposit':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/deposit_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/deposit_btn');
+        window.location.href = 'http://localhost:3005/DepositForm';
         break;
       case 'Withdraw':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/withdraw_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/withdraw_btn');
+        window.location.href = 'http://localhost:3005/WithdrawForm';
         break;
       case 'Send':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/send_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/send_btn');
+        window.location.href = 'http://localhost:3006/WalletTransactionInterface';
         break;
       case 'Top-up':
         router.push('/Crypto_Wallet/Dashboard/fiatwallet/top-up_btn');
@@ -479,7 +483,8 @@ const Home = () => {
     } else {
       switch (iconName) {
         case 'Buy':
-          router.push('/Crypto_Wallet/Dashboard/buy_btn');
+          // router.push('/Crypto_Wallet/Dashboard/buy_btn');
+          window.location.href = 'http://localhost:3005/Currency_Conversion';
           break;
         case 'Swap':
           router.push('/Crypto_Wallet/swap_btn');
@@ -520,6 +525,10 @@ const Home = () => {
 
   const handleManageWallets = () => {
     router.push('/Crypto_Wallet/Dashboard/addmanagewallets_btn'); // Adjust the route as needed
+  };
+  const handleViewWallets = () => {
+    router.push('http://localhost:3004/Manageprofile'); // Adjust the route as needed
+    // window.location.href = 'http://localhost:3004/Manageprofile';
   };
 
   const handlebuyclick = () => {
@@ -672,7 +681,7 @@ const Home = () => {
                       <GoCheck className={styles.checkIcon} />
                     </div>
                   </div>
-                  <button className={styles.viewprofileButton} onClick={handleManageWallets}>
+                  <button className={styles.viewprofileButton} onClick={handleViewWallets}>
                     <span className={styles.text}>View your profile</span>
                   </button>
                 </div>

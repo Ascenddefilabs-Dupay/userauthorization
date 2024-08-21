@@ -54,6 +54,10 @@ const Settings = () => {
     let redirectUrl = '/Crypto_Wallet/Dashboard/Settings/securityfrom';
     router.push(redirectUrl);
   };
+  const profileHandleClick = () => {
+    let redirectUrl = 'http://localhost:3004/Manageprofile/profilesidebar';
+    router.push(redirectUrl);
+  };
   const handleNotification = () => {
     let redirectUrl = '/Crypto_Wallet/Dashboard/Settings/notificationfrom';
     router.push(redirectUrl);
@@ -83,7 +87,7 @@ const Settings = () => {
 
           <div className="subcard">
             <div className="card2">
-              <button className="username">
+              <button className="username" onClick={profileHandleClick}>
                 <img className="card-image" />
                 <div className="labels0">
                   <span className="user">username.co.id </span>

@@ -10,7 +10,7 @@
     width: 400px;
     margin: 10px auto;
     padding: 16px;
-    background-color: #1a1a1a;
+    background-color: black;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     font-family: Arial, sans-serif;
@@ -81,7 +81,7 @@
 .switch_now {
     margin-bottom: 10px;
     align-items: center;
-    color: #1a1a1a;
+    color: whitesmoke;
     font-weight: bold; 
 
 }
@@ -89,7 +89,7 @@
 .may_later {
     display: flex;
     padding: 10px;
-    background-color: grey; 
+    background: rgba(255, 255, 255, 0.1); 
     color: white; 
     border: none;
     border-radius: 50px;
@@ -104,6 +104,12 @@
     margin-top: 10px;
     padding-top: 20px;
 }
+
+.may_later:hover {
+    background-color: black; 
+    color: #e0e0e0; 
+}
+
 .maybe {
     margin-bottom: 10px;
     align-items: center;

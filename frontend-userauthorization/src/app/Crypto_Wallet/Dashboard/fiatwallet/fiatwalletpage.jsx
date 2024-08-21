@@ -111,16 +111,20 @@ const FiatWallet = () => {
   const handleButtonClick = (buttonName) => {
     switch (buttonName) {
       case 'Add Bank':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/addbank_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/addbank_btn');
+        window.location.href = 'http://localhost:3005/AddBanks';
         break;
       case 'Deposit':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/deposit_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/deposit_btn');
+        window.location.href = 'http://localhost:3005/DepositForm';   
         break;
       case 'Withdraw':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/withdraw_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/withdraw_btn');
+        window.location.href = 'http://localhost:3005/WithdrawForm';
         break;
       case 'Send':
-        router.push('/Crypto_Wallet/Dashboard/fiatwallet/send_btn');
+        // router.push('/Crypto_Wallet/Dashboard/fiatwallet/send_btn');
+        window.location.href = 'http://localhost:3006/WalletTransactionInterface';
         break;
       case 'Top-up':
         router.push('/Crypto_Wallet/Dashboard/fiatwallet/top-up_btn');

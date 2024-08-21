@@ -15,6 +15,7 @@ const AddCrypto = () => {
 
   const handleAddCryptoClick = () => {
     console.log('Add crypto with Dupay Onramp clicked');
+    router.push('http://localhost:3005/Currency_Conversion');
   };
 
   const handleTransferClick = () => {
@@ -57,7 +58,7 @@ const AddCrypto = () => {
         <Box
           component="img"
           src="/crypto.png"
-          alt="Coinbase"
+          alt="Dupay"
           sx={{ width: '90%', height: 'auto', maxWidth: 220, maxHeight: 240, marginRight: 2, marginLeft: 2 }}
         />
       </Box>
@@ -97,13 +98,13 @@ const AddCrypto = () => {
         Transfer from another wallet
       </Button>
       <Typography variant="caption" display="block" sx={{ marginTop: 2, textAlign: 'center', paddingX: 2 }}>
-        <p>Use of Coinbase.com's account linkage feature is 
-        subject to Coinbase.com's{' '}</p>
-        <Link href="https://www.coinbase.com/user-agreement" target="_blank" sx={{ color: 'blue' }}>
+        <p>Use of Dupay.com's account linkage feature is 
+        subject to Dupay.com's{' '}</p>
+        <Link href="https://www.Dupay.com/user-agreement" target="_blank" sx={{ color: 'blue' }}>
           User Agreement
         </Link>{' '}
         and{' '}
-        <Link href="https://www.coinbase.com/privacy-policy" target="_blank" sx={{ color: 'blue' }}>
+        <Link href="https://www.Dupay.com/privacy-policy" target="_blank" sx={{ color: 'blue' }}>
           Privacy Policy
         </Link>.
       </Typography>

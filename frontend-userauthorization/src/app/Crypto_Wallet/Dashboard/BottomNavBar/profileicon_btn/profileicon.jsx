@@ -71,7 +71,7 @@ export default function HomePage() {
         if (button === 'Buy') {
             setSelectedButton(button);
             console.log(button);
-            router.push('/Crypto_Wallet/Dashboard/buy_btn');
+            router.push('http://localhost:3005/Currency_Conversion');
         } else if (button === 'Receive') {
             setSelectedButton(button);
             console.log(button);

@@ -12,7 +12,8 @@ export default function Swap() {
     }
 
     const handleAddCryptoClick = () => {
-        router.push('/Crypto_Wallet/Dashboard/buy_btn'); // Adjust the route as needed
+        // router.push('/Crypto_Wallet/Dashboard/buy_btn'); // Adjust the route as needed
+        window.location.href = 'http://localhost:3005/Currency_Conversion';
     };
 
     const handleLearnMoreClick = () => {

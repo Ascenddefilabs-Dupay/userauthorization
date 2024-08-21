@@ -262,7 +262,7 @@ export default function Receive() {
                     style={{ margin: '0 30px', border: '1px solid white', width: '330px', height: '40px', borderRadius: '10px', padding: '8px', justifyContent: 'space-between', position: 'relative', top:'35px' }}
                 >
                     <button 
-                        onClick={() => router.push('/Crypto_Wallet/Dashboard/buy_btn')} // Navigate to the buy page
+                        onClick={() => router.push('http://localhost:3005/Currency_Conversion')}
                     >
                         Buy Crypto
                     </button>

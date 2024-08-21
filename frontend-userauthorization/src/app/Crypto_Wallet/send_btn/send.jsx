@@ -14,7 +14,8 @@ export default function send(){
         router.push('/Crypto_Wallet/Dashboard')
     }
     const handleAddCrytoClick = () => {
-        router.push('/Crypto_Wallet/Dashboard/buy_btn')
+        // router.push('/Crypto_Wallet/Dashboard/buy_btn')
+        window.location.href = 'http://localhost:3005/Currency_Conversion';
     }
 
     return(
