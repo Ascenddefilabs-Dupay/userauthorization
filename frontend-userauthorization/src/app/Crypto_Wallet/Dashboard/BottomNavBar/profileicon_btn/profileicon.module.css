@@ -152,7 +152,7 @@
 }
 
 .card {
-    background-color: green;
+    background: linear-gradient(90deg, #007bff9f, #800080);
     color: white;
     width: 350px;
     margin-left: 3px;

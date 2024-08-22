@@ -34,7 +34,7 @@ export default function send(){
                 <p style={{marginLeft: '100px'}}> To send, first add crypto to</p>                
                 <p style={{marginLeft: '160px'}}> your wallet </p>
                <div style={{marginRight: '66px', position: 'relative'}}>
-               <p style={{marginTop: '10px',marginLeft: '60px', color: 'gray', fontSize: '13px'}}>Use a Coinbase account to buy or transfer</p>
+               <p style={{marginTop: '10px',marginLeft: '60px', color: 'gray', fontSize: '13px'}}>Use a Dupay account to buy or transfer</p>
                <p   style={{ color: 'gray', fontSize: '13px',marginLeft: '90px'}}> crypto, or receive assets directly.</p>
                </div>
             </div>
