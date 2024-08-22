@@ -12,8 +12,7 @@ export default function Swap() {
     }
 
     const handleAddCryptoClick = () => {
-        // router.push('/Crypto_Wallet/Dashboard/buy_btn'); // Adjust the route as needed
-        window.location.href = 'http://localhost:3005/Currency_Conversion';
+        router.push('/Crypto_Wallet/Dashboard/buy_btn'); // Adjust the route as needed
     };
 
     const handleLearnMoreClick = () => {
@@ -28,18 +27,16 @@ export default function Swap() {
             top: '1px',
             margin: '0 auto',
             color: 'white',
-            height: '100vh',
+            minHeight: '80vh',
             borderRadius: '15px',
             display: 'flex',
             flexDirection: 'column',
             overflowY: 'auto',
             cursor: 'pointer',
-            fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
-
         }}>
             <div style={{ flex: '1' }}> 
                 <ArrowBackIcon onClick={handleBackClick} style={{ margin: '10px 15px' }} />
-                <img src="/swap_image.jpg" alt="Swap image" style={{ height: '110px', marginLeft: '100px' }} />
+                <img src="/swap_image.png" alt="Swap image" style={{ height: '140px', marginLeft: '130px' }} />
                 <header style={{ alignItems: 'center', marginLeft: '110px', fontSize: '20px' }}>
                     Get the best price
                     <p style={{ marginLeft: '20px' }}>
@@ -92,13 +89,13 @@ export default function Swap() {
                         style={{
                             marginBottom: '10px',
                             padding: '10px',
-                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
+                            backgroundColor: 'rgb(33, 98, 238)',
                             color: 'white',
-                            borderRadius: '5px',
+                            borderRadius: '25px',
                             fontWeight: 'bold',
                             border: 'none',
                             width: '100%'
-                          }}
+                        }}
                     >
                         Add crypto to your wallet
                     </button>
@@ -108,10 +105,10 @@ export default function Swap() {
                         onClick={handleLearnMoreClick}
                         style={{
                             padding: '10px',
-                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
+                            backgroundColor: 'rgb(50, 53, 61)',
                             color: 'white',
                             fontWeight: 'bold',
-                            borderRadius: '5px',
+                            borderRadius: '25px',
                             border: 'none',
                             width: '100%'
                         }}

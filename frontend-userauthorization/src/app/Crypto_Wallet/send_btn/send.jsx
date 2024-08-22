@@ -14,20 +14,18 @@ export default function send(){
         router.push('/Crypto_Wallet/Dashboard')
     }
     const handleAddCrytoClick = () => {
-        // router.push('/Crypto_Wallet/Dashboard/buy_btn')
-        window.location.href = 'http://localhost:3005/Currency_Conversion';
+        router.push('/Crypto_Wallet/Dashboard/buy_btn')
     }
 
     return(
         <div style={{backgroundColor : 'black', width: '400px', 
                     margin: '0 auto', height: '100vh', color: 'white',
                     borderRadius: '12px',top: '1px' , alignItems: 'center'}}>
-                <ArrowBackIcon  onClick={handleBackClick}  style={{margin : '15px 10px', cursor: 'pointer'}}/>
-                <h1 style= {{marginTop: '-40px', marginLeft: '45px' , cursor: 'pointer',  fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
-        }}>Send</h1>
+                <ArrowBackIcon  onClick={handleBackClick}  style={{margin : '15px 10px'}}/>
+                <h1 style= {{marginTop: '-40px', marginLeft: '45px' , cursor: 'pointer'}}>Send</h1>
 
             <div style={{alignItems: 'center'}}>
-            <img src="/send_image.jpg" alt="Send_Image" style={{height: '180px', width: '180px', marginLeft:'120px', marginTop: '20px'}}/>
+            <img src="/send_image.png" alt="Send_Image" style={{height: '160px', width: '160px', marginLeft:'112px', marginTop: '20px'}}/>
 
             </div>
             <div style={{marginTop: '50px',}}>
@@ -46,9 +44,9 @@ export default function send(){
                         style={{
                             marginTop: '85px',
                             padding: '10px',
-                            background: 'linear-gradient(90deg, #007bff9f, #800080)',
+                            backgroundColor: 'rgb(33, 98, 238)',
                             color: 'white',
-                            borderRadius: '5px',
+                            borderRadius: '25px',
                             fontWeight: 'bold',
                             border: 'none',
                             width: '90%',

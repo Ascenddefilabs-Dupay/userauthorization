@@ -14,8 +14,7 @@ const AddCrypto = () => {
   };
 
   const handleAddCryptoClick = () => {
-    console.log('Add crypto with Dupay Onramp clicked');
-    router.push('http://localhost:3005/Currency_Conversion');
+    console.log('Add crypto with Coinbase Onramp clicked');
   };
 
   const handleTransferClick = () => {
@@ -27,20 +26,17 @@ const AddCrypto = () => {
       sx={{
         position: 'relative',
         display: 'flex',   
-        top: '1px',     
-        bottom: '40px',
+        top: '1px',   
         flexDirection: 'column',
         alignItems: 'center',// Center content vertically
         backgroundColor: '#000',
         color: '#fff',
-        height: '90vh',// Ensure the screen height covers the entire viewport
+        height: '120vh',// Ensure the screen height covers the entire viewport
         width: '100%',
-        maxWidth: '400px', // Set the screen width to 400px
+        maxWidth: '350px', // Set the screen width to 400px
         padding: 2,
         margin: '0 auto', // Center the box horizontally
         boxSizing: 'border-box', // Include padding in the element's total width and height
-        fontFamily: 'Arial, Helvetica, sans-serif', /* Set the font for the entire container */
-
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -56,17 +52,18 @@ const AddCrypto = () => {
 
       <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
         <Box
+          className='crypto_picture'
           component="img"
           src="/crypto.png"
-          alt="Dupay"
-          sx={{ width: '90%', height: 'auto', maxWidth: 220, maxHeight: 240, marginRight: 2, marginLeft: 2 }}
+          alt="Coinbase"
+          
         />
       </Box>
       <Typography   variant="h6" sx={{ textAlign: 'center', fontWeight: 'bold',fontSize: '22px', color: '#fff',
-             marginLeft: 0,marginTop: 0, flexGrow: 1  }} >  Buy or transfer from Dupay 
+             marginLeft: 0,marginTop: 0, flexGrow: 1  }} >  Buy or transfer from Coinbase 
          </Typography>
          <Typography variant="body2" sx={{ textAlign: 'center' ,color: 'gray', marginBottom: 5 }}>
-            You can add crypto from your Dupay account or another wallet.
+            You can add crypto from your Coinbase account or another wallet.
         </Typography>
 
       <Button
@@ -77,11 +74,13 @@ const AddCrypto = () => {
           marginBottom: 2,
           marginTop: -3,
           width: '80%', 
-          background: 'linear-gradient(90deg, #007bff9f, #800080)',
-          borderRadius: '5px',
+          borderRadius: 12,
+          '&:hover': { 
+            backgroundColor: '#1976d2' 
+          } 
         }}
       >
-        Add crypto with Dupay Onramp
+        Add crypto with Coinbase Onramp
       </Button>
       <Button
         variant="outlined"
@@ -89,22 +88,25 @@ const AddCrypto = () => {
         onClick={handleTransferClick}
         sx={{ 
           color: '#fff', 
-          borderColor: '#000', 
+          borderColor: '#fff', 
           width: '80%', 
-          background: 'linear-gradient(90deg, #007bff9f, #800080)',
-          borderRadius: '5px',
+          borderRadius: 12,
+          '&:hover': { 
+            backgroundColor: '#333', 
+            borderColor: '#333'
+          } 
         }}
       >
         Transfer from another wallet
       </Button>
       <Typography variant="caption" display="block" sx={{ marginTop: 2, textAlign: 'center', paddingX: 2 }}>
-        <p>Use of Dupay.com's account linkage feature is 
-        subject to Dupay.com's{' '}</p>
-        <Link href="https://www.Dupay.com/user-agreement" target="_blank" sx={{ color: 'blue' }}>
+        <p>Use of Coinbase.com's account linkage feature is 
+        subject to Coinbase.com's{' '}</p>
+        <Link href="https://www.coinbase.com/user-agreement" target="_blank" sx={{ color: 'blue' }}>
           User Agreement
         </Link>{' '}
         and{' '}
-        <Link href="https://www.Dupay.com/privacy-policy" target="_blank" sx={{ color: 'blue' }}>
+        <Link href="https://www.coinbase.com/privacy-policy" target="_blank" sx={{ color: 'blue' }}>
           Privacy Policy
         </Link>.
       </Typography>
