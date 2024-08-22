@@ -71,7 +71,7 @@ export default function HomePage() {
         if (button === 'Buy') {
             setSelectedButton(button);
             console.log(button);
-            router.push('http://localhost:3005/Currency_Conversion');
+            router.push('/Crypto_Wallet/Dashboard/buy_btn');
         } else if (button === 'Receive') {
             setSelectedButton(button);
             console.log(button);
@@ -134,7 +134,7 @@ export default function HomePage() {
                     </div>
                     <div className={styles.iconGroup}>
                         <FontAwesomeIcon icon={faCopy} onClick={handleCopyEmail} />
-                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />
+                        <FontAwesomeIcon icon={faGear} onClick={handleSettings} />git push
 
                     </div>
                 </div>
@@ -187,29 +187,14 @@ export default function HomePage() {
                         {!scannerOpen && (
                             <div className={styles.buttonGroup}>
                                 <div className={styles.buttonContainer}>
-                                <Fab
-                                size="small"
-                                onClick={() => handleTopButtonClick('Buy')}
-                                style={{
-                                    background: 'linear-gradient(90deg, #007bff9f, #800080)',
-                                    color: 'white'
-                                }}
-                                >
-                                    <FaPlus fontSize="18px" />
-                                </Fab>
-                                <Typography variant="caption">Buy</Typography>
-                            </div>
-
+                                    <Fab size="small" color="primary" onClick={() => handleTopButtonClick('Buy')}  sx={{ background: 'linear-gradient(90deg, #007bff9f, #800080)', color: 'white' }}>
+                                        <FaPlus fontSize="18px" color="white" />
+                                    </Fab>
+                                    <Typography variant="caption">Buy</Typography>
+                                </div>
                                 <div className={styles.buttonContainer}>
-                                <Fab
-                                    size="small"
-                                    onClick={() => handleTopButtonClick('Buy')}
-                                    style={{
-                                        background: 'linear-gradient(90deg, #007bff9f, #800080)',
-                                        color: 'white'
-                                    }}
-                                    >
-                                        <FaArrowDown fontSize="18px" />
+                                    <Fab size="small" color="primary" onClick={() => handleTopButtonClick('Receive')}  sx={{ background: 'linear-gradient(90deg, #007bff9f, #800080)', color: 'white' }}>
+                                        <FaArrowDown fontSize="20px" color="white" />
                                     </Fab>
                                     <Typography variant="caption">Receive</Typography>
                                 </div>
@@ -225,7 +210,7 @@ export default function HomePage() {
                     <Card className={styles.card}>
                         <CardContent>
                             <div className={styles.imgdiv}>
-                                <img src="/Buycrypto-btn.imaage.jpg" alt="Buycrypto-btn_imaage.jpg" className={styles.image} />
+                                <img src="/Buycrypto-btn.image.png" alt="Buycrypto-btn_imaage.jpg" className={styles.image} />
                                 <div className={styles.getstartbtn}>
                                     <Typography variant="body1" style={{ fontWeight: 'bold' }}>Fund your wallet</Typography>
                                     <p style={{ fontSize: '11px' }}>Get a free NFT by adding</p>

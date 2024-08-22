@@ -12,7 +12,6 @@
     margin: 0 auto;
     border-radius: 12px;
     overflow: hidden; 
-    font-family: Arial, Helvetica, sans-serif; /* Set the font for the entire container */
 }
 
 .emailBar {
@@ -104,14 +103,14 @@
 .viewprofileButton,
 .manageWalletsButton {
     font-weight: bold;
-    background: linear-gradient(90deg, #007bff9f, #800080);
+    background-color: rgba(91, 84, 84, 0.447);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    width: 105%;
+    border-radius: 45px;
+    width: 100%;
     gap: 40px;
     margin-top: 22px;
     color: #fff;
@@ -142,6 +141,7 @@
 .buttonGroup {
     display: flex;
     gap: 35px;
+    
 }
 
 .buttonContainer {
@@ -149,6 +149,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .card {
@@ -172,14 +173,15 @@
 }
 
 .image {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 15px;
     margin-left: 20px;
 }
 
 .imgdiv {
     display: flex;
+    
 }
 
 .getstartbtn {

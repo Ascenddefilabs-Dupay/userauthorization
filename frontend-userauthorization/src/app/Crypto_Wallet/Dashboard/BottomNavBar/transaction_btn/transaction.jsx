@@ -1,3 +1,29 @@
+// 'use client';
+
+// import { useRouter } from 'next/navigation';
+// import styles from './Assets.module.css';
+
+// const Assets = () => {
+//   const router = useRouter();
+
+//   return (
+//     <div className={styles.container}>
+//       <h1 className={styles.header}>Assets</h1>
+//       <div className={styles.contentBox}>
+//         <p className={styles.text}> No Assets found</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Assets;
+
+
+
+
+
+// components/Transactions.js
+
 "use client"
 import styles from './transaction.module.css';
 
@@ -9,7 +35,7 @@ const Transactions = () => {
     </header>
       <div className={styles.noTransactions}>
         <div>
-        <img className= {styles.img} src="/transaction_image.svg" alt="transactions_image" />
+        <img className= {styles.img} src="/transaction_image.png" alt="transactions_image" />
 
         </div>
         <h2 className={styles.noTransactionsTitle}>No transactions yet</h2>
