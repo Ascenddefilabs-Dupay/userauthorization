@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from .models import Project,CustomUser
-from .serializers import ProjectSerializer,CustomUserSerializer
+from .models import Project,CustomUser, User
+from .serializers import FiatWalletSerializer, ProjectSerializer,CustomUserSerializer, UserSerializer
 from django.shortcuts import get_object_or_404
 from .models import Notificationthings
 from .models import Password
@@ -13,6 +13,10 @@ from .serializers import NotificationSerializer
 from .serializers import PasswordSerializer
 from django.http import JsonResponse
 from django.db import connection, models
+from .models import FiatWallet
+from rest_framework.views import APIView
+    
+
 
 
 
@@ -171,3 +175,28 @@ class RepasswordViewSet(viewsets.ModelViewSet):
 
         return Response(serializer.data)
     
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    # lookup_field="id"
+
+class FiatWalletViewSet(viewsets.ModelViewSet):
+    queryset = FiatWallet.objects.all()
+    serializer_class = FiatWalletSerializer
+    lookup_field="fiat_wallet_id"
+
+class FiatWalletfetch(viewsets.ModelViewSet):
+    serializer_class = FiatWalletSerializer
+    lookup_field="user_id"
+
+
+    def get_queryset(self):
+        user_id = self.kwargs.get('user_id')
+        print(f"Fetching FiatWallet for user_id: {user_id}")  # Debugging output
+
+        if user_id:
+            queryset = FiatWallet.objects.filter(user_id=user_id)
+            print(f"Queryset: {queryset}")  # Debugging output
+            return queryset
+        
+        return FiatWallet.objects.all()
