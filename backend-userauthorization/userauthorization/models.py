@@ -30,6 +30,7 @@ class CustomUser(models.Model):
 
     class Meta:
         db_table = 'users'
+        managed = False
 
 class Notificationthings(models.Model):
     user_id = models.CharField(max_length=255, unique=True, primary_key=True, default='dupA0005')
@@ -42,6 +43,8 @@ class Notificationthings(models.Model):
 
     class Meta:
         db_table = 'notification_settings'
+        managed = False
+
 
 class Password(models.Model):
     password_creation = models.CharField(max_length=6)
@@ -49,6 +52,7 @@ class Password(models.Model):
 
     class Meta:
         db_table = 'app_password'
+        managed = False
 
 class User(models.Model):
     id = models.CharField(max_length=20, primary_key=True, unique=True, editable=False)
@@ -71,9 +75,10 @@ class User(models.Model):
         decimal_places=2,
         default=0,
     )
-
+    
     class Meta:
         db_table = 'currency_converter_user'
+        managed = False
 
 class FiatWallet(models.Model):
     fiat_wallet_id = models.CharField(
@@ -174,3 +179,4 @@ class FiatWallet(models.Model):
 
     class Meta:
         db_table = 'currency_converter_fiatwallet'
+        managed = False
