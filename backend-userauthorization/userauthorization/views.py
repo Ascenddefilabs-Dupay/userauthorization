@@ -94,6 +94,7 @@ class NotificationViewSet(viewsets.ModelViewSet):
 class PasswordViewSet(viewsets.ModelViewSet):
     queryset = Password.objects.all()
     serializer_class = PasswordSerializer
+    print(queryset)
 
     def create(self, request, *args, **kwargs):
         id = 12345
