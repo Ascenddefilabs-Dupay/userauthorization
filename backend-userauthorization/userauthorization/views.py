@@ -2,9 +2,10 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
+from django.views import View
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from .models import Project,CustomUser, User
+from .models import Project,CustomUser
 from .serializers import FiatWalletSerializer, ProjectSerializer,CustomUserSerializer, UserSerializer
 from django.shortcuts import get_object_or_404
 from .models import Notificationthings
@@ -177,7 +178,7 @@ class RepasswordViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
     
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     # lookup_field="id"
 
@@ -201,3 +202,36 @@ class FiatWalletfetch(viewsets.ModelViewSet):
             return queryset
         
         return FiatWallet.objects.all()
+
+class FetchQRCodeView(View):
+
+    def get(self, request, *args, **kwargs):
+        user_id = request.GET.get('user_id')  # Get user_id from query parameters
+        if not user_id:
+            return JsonResponse({'error': 'User ID is required.'}, status=400)
+
+        qr_code = None
+        email = None
+        mobile_number = None
+
+        try:
+            with connection.cursor() as cursor:
+                # Query to fetch the qr_code, email, and mobile number from fiat_wallet table based on user_id
+                cursor.execute("""
+                    SELECT qr_code, fiat_wallet_email, fiat_wallet_phone_number 
+                    FROM fiat_wallet 
+                    WHERE user_id = %s
+                """, [user_id])
+                row = cursor.fetchone()
+
+                if row:
+                    qr_code = row[0]  # Extract the QR code from the query result
+                    email = row[1]   # Extract the email
+                    mobile_number = row[2]  # Extract the mobile number
+                else:
+                    return JsonResponse({'error': 'Details not found for this user ID.'}, status=404)
+
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+        return JsonResponse({'qr_code': qr_code, 'email': email, 'mobile_number': mobile_number})

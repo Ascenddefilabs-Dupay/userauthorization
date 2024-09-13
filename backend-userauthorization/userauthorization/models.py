@@ -54,31 +54,6 @@ class Password(models.Model):
         db_table = 'app_password'
         managed = False
 
-class User(models.Model):
-    id = models.CharField(max_length=20, primary_key=True, unique=True, editable=False)
-    name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    phone_number = models.CharField(
-        max_length=15,
-        validators=[
-            RegexValidator(
-                regex=r'^\+?1?\d{9,15}$',
-                message="Invalid phone number format."
-            )
-        ],
-        blank=True,
-        null=True,
-        unique=True
-    )
-    users_data_limit = models.DecimalField(
-        max_digits=18,
-        decimal_places=2,
-        default=0,
-    )
-    
-    class Meta:
-        db_table = 'currency_converter_user'
-        managed = False
 
 class FiatWallet(models.Model):
     fiat_wallet_id = models.CharField(
@@ -87,7 +62,7 @@ class FiatWallet(models.Model):
         unique=True,
         editable=False
     )
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     fiat_wallet_type = models.CharField(max_length=50)
     fiat_wallet_currency = models.CharField(max_length=10)
     fiat_wallet_address = models.CharField(
@@ -114,8 +89,8 @@ class FiatWallet(models.Model):
         null=True,
         unique=True
     )
-    fiat_wallet_username = models.CharField(max_length=50, unique=True)
-    qr_code = models.TextField(blank=True, null=True)
+    # fiat_wallet_username = models.CharField(max_length=50, unique=True)
+    # qr_code = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.fiat_wallet_currency = self.fiat_wallet_currency.upper()
@@ -157,8 +132,6 @@ class FiatWallet(models.Model):
         else:
             raise ValueError("Unsupported currency type")
 
-    def __str__(self):
-        return f"{self.user.name} - {self.fiat_wallet_type}"
 
     def generate_qr_code(self):
         qr_data = f"{self.fiat_wallet_username}-{self.fiat_wallet_phone_number}"
@@ -178,5 +151,5 @@ class FiatWallet(models.Model):
         self.qr_code = img_str
 
     class Meta:
-        db_table = 'currency_converter_fiatwallet'
+        db_table = 'fiat_wallet'
         managed = False
