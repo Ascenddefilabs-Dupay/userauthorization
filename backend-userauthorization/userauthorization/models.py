@@ -114,7 +114,7 @@ class FiatWallet(models.Model):
 
         # Automatically assign a user if none is provided
         if not self.user_id:
-            default_user = User.objects.first()  # Get the first user from the database
+            default_user = CustomUser.objects.first()  # Get the first user from the database
             if default_user is None:
                 raise ValueError("No user available. Please create a user first.")
             self.user = default_user
