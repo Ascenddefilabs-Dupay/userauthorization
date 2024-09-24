@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import FetchQRCodeView, ProjectViewSet,CustomUserViewSet
 from .views import NotificationViewSet
-from .views import PasswordViewSet, RepasswordViewSet
+from .views import PasswordViewSet, RepasswordViewSet,  LogPassword, LogPasswordLock
 from userauthorization import views
 
 router = DefaultRouter()
@@ -16,6 +16,8 @@ router.register(r'repassword', RepasswordViewSet, basename='repassword')
 router.register(r'user', views.UserViewSet)
 router.register(r'fiat_wallets', views.FiatWalletViewSet)
 router.register(r'fiat_wallets_fetch', views.FiatWalletfetch, basename='fiat_wallet_fetch')
+router.register(r'logpassword', LogPassword, basename='logpassword')
+router.register(r'logpassword1', LogPasswordLock, basename='logpassword1')
 
 
 
