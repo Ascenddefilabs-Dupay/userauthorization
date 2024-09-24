@@ -16,6 +16,11 @@ from django.http import JsonResponse
 from django.db import connection, models
 from .models import FiatWallet
 from rest_framework.views import APIView
+from django.shortcuts import render
+from rest_framework import viewsets, status
+from .models import FiatWallet
+from rest_framework.views import APIView
+import bcrypt
     
 
 
@@ -47,7 +52,8 @@ class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer
 
     def create(self, request, *args, **kwargs):
-        user_id = 'dupA0005'
+        user_id = request.data.get('userId')
+        print(user_id)
         product_announcement = request.data.get('product_announcement', False)
         insights_tips = request.data.get('insights_tips', False)
         special_offers = request.data.get('special_offers', False)
@@ -64,7 +70,7 @@ class NotificationViewSet(viewsets.ModelViewSet):
                 'special_offers': special_offers,
                 'price_alerts': price_alerts,
                 'account_activity': account_activity,
-                'messages': messages
+                'messages': messages,
             }
         )
 
@@ -75,6 +81,7 @@ class NotificationViewSet(viewsets.ModelViewSet):
             notification.price_alerts = price_alerts
             notification.account_activity = account_activity
             notification.messages = messages
+            notification.user_id = user_id
             notification.save()
 
         serializer = self.get_serializer(notification)
@@ -95,49 +102,92 @@ class NotificationViewSet(viewsets.ModelViewSet):
 class PasswordViewSet(viewsets.ModelViewSet):
     queryset = Password.objects.all()
     serializer_class = PasswordSerializer
-    print(queryset)
 
     def create(self, request, *args, **kwargs):
-        id = 12345
         password_creation = request.data.get('password_creation')
+        user_id = request.data.get('userId')
+
+        if not password_creation:
+            return Response({'error': 'Password creation field is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Hash the password before saving
+        hashed_password = bcrypt.hashpw(password_creation.encode('utf-8'), bcrypt.gensalt())
+
         password_setting, created = Password.objects.get_or_create(
-            id=id,
+            id=user_id,
             defaults={
-                'password_creation': password_creation,
+                'password_creation': hashed_password.decode('utf-8'),
             }
         )
         if not created:
-            password_setting.password_creation = password_creation
+            password_setting.password_creation = hashed_password.decode('utf-8')
             password_setting.save()
 
         serializer = self.get_serializer(password_setting)
-        if created:
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_201_CREATED if created else status.HTTP_200_OK)
+
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
+        password_creation = request.data.get('password_creation')
+
+        if password_creation:
+            hashed_password = bcrypt.hashpw(password_creation.encode('utf-8'), bcrypt.gensalt())
+            request.data['password_creation'] = hashed_password.decode('utf-8')
+
         serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
 
         return Response(serializer.data)
 
+# class RepasswordViewSet(viewsets.ModelViewSet):
+#     queryset = Password.objects.all()
+#     serializer_class = PasswordSerializer
+
+#     def create(self, request, *args, **kwargs):
+#         retype_password = request.data.get('retype_password')
+
+#         if not retype_password:
+#             return JsonResponse({'status': 'error', 'message': 'Retype password field is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+#         try:
+#             password_setting = Password.objects.get(id=54321)
+#             stored_password_hash = password_setting.password_creation.encode('utf-8')
+#         except Password.DoesNotExist:
+#             return JsonResponse({'status': 'error', 'message': 'Original password not found'}, status=status.HTTP_404_NOT_FOUND)
+
+#         # Hash the retype_password for comparison
+#         retype_password_hash = bcrypt.hashpw(retype_password.encode('utf-8'), bcrypt.gensalt())
+
+#         if not bcrypt.checkpw(retype_password.encode('utf-8'), stored_password_hash):
+#             return JsonResponse({'status': 'password_failure', 'message': 'Passwords do not match'}, status=status.HTTP_400_BAD_REQUEST)
+        
+
+#         return JsonResponse({'status': 'success', 'message': 'Passwords match'}, status=status.HTTP_200_OK)
+    
 class RepasswordViewSet(viewsets.ModelViewSet):
     queryset = Password.objects.all()
     serializer_class = PasswordSerializer
+   
 
     def create(self, request, *args, **kwargs):
-        id = 12345
+        user_id = request.data.get('userId')
+        id = user_id
         password_creation = request.data.get('password_creation')
         retype_password = request.data.get('retype_password')
-        print(type(password_creation),type(retype_password))
+
+        print(type(password_creation), type(retype_password))
+
+        # Hash the retype_password
+        hashed_retype_password = bcrypt.hashpw(retype_password.encode('utf-8'), bcrypt.gensalt())
+
         password_setting, created = Password.objects.get_or_create(
-            id=id,
+            id=user_id,
             defaults={
-                'retype_password': retype_password,
+                'retype_password': hashed_retype_password.decode('utf-8'),
             }
         )
+
         with connection.cursor() as cursor:
             cursor.execute("SELECT * FROM app_password")
             rows = cursor.fetchall()
@@ -154,13 +204,28 @@ class RepasswordViewSet(viewsets.ModelViewSet):
         if id in id_list:
             index = id_list.index(id)
 
-        print(password_list[index] != retype_list[index], password_list[index],retype_list[index])
+        print(password_list[index] != retype_list[index], password_list[index], retype_list[index])
 
-        if password_list[index] != retype_password:
-            return JsonResponse({'status': 'password_failure', 'message': 'Password Must Be Same'})
+        
+        if not retype_password:
+            return JsonResponse({'status': 'error', 'message': 'Retype password field is required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            password_setting = Password.objects.get(id=user_id)
+            stored_password_hash = password_setting.password_creation.encode('utf-8')
+        except Password.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Original password not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        # Hash the retype_password for comparison
+        retype_password_hash = bcrypt.hashpw(retype_password.encode('utf-8'), bcrypt.gensalt())
+
+        print(bcrypt.checkpw(retype_password.encode('utf-8'), stored_password_hash))
+
+        if not bcrypt.checkpw(retype_password.encode('utf-8'), stored_password_hash):
+            return JsonResponse({'status': 'password_failure', 'message': 'Passwords do not match'})
 
         if not created:
-            password_setting.retype_password = retype_password
+            password_setting.retype_password = hashed_retype_password.decode('utf-8')
             password_setting.save()
 
         serializer = self.get_serializer(password_setting)
@@ -235,3 +300,79 @@ class FetchQRCodeView(View):
             return JsonResponse({'error': str(e)}, status=500)
 
         return JsonResponse({'qr_code': qr_code, 'email': email, 'mobile_number': mobile_number})
+    
+class LogPassword(viewsets.ViewSet):
+    
+    def list(self, request):
+        user_id = request.data.get('userId')
+        id = user_id
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM app_password")
+            rows = cursor.fetchall()
+        print(rows)
+        
+        id_list = [row[0] for row in rows]
+        logpassword_list = [row[1] for row in rows]
+        
+        print(id in id_list)
+        if id in id_list:
+            index = id_list.index(id)
+            return JsonResponse({'status': 'User_Id_is_connected', 'message': 'Passwords do not match'})
+        else:
+            return JsonResponse({'status': 'Error', 'message': 'User not found'})
+        
+
+
+class LogPasswordLock(viewsets.ViewSet):
+    
+    def create(self, request):
+        user_id = request.data.get('userId')
+        id = user_id
+        logmain_password = request.data.get('logmain_password')  # The user input password
+        
+        print("Input password (raw):", logmain_password)
+        
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM app_password")
+            rows = cursor.fetchall()  # Fetching all password records
+            
+        print("Fetched rows from DB:", rows)
+        
+        id_list = [row[0] for row in rows]  # List of IDs
+        logpassword_list = [row[1] for row in rows]  # List of hashed passwords
+        
+        if id in id_list:
+            index = id_list.index(id)  # Get the index of the user with the matching ID
+            stored_password_hash = logpassword_list[index]  # Get the hashed password from the DB
+            
+            print(f"Stored hash from DB (for ID {id}):", stored_password_hash)
+            
+            # Check if the input password matches the hashed password from the DB
+            if bcrypt.checkpw(logmain_password.encode('utf-8'), stored_password_hash.encode('utf-8')):
+                print("Password match")
+                return JsonResponse({'status': 'Password_Match', 'message': 'Password is correct'})
+            else:
+                print("Password does not match")
+                return JsonResponse({'status': 'password_failure', 'message': 'Passwords do not match'})
+        
+        else:
+            print("User ID not found")
+            return JsonResponse({'status': 'Error', 'message': 'User not found'})
+        
+    def list(self, request):
+        user_id = request.data.get('userId')
+        id = user_id
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM app_password")
+            rows = cursor.fetchall()
+        print(rows)
+        
+        id_list = [row[0] for row in rows]
+        logpassword_list = [row[1] for row in rows]
+        
+        print(id in id_list)
+        if id in id_list:
+            index = id_list.index(id)
+            return JsonResponse({'status': 'User_Id_is_connected', 'message': 'Passwords do not match'})
+        else:
+            return JsonResponse({'status': 'Error', 'message': 'User not found'})
