@@ -303,7 +303,25 @@ class FetchQRCodeView(View):
     
 class LogPassword(viewsets.ViewSet):
     
-    def list(self, request):
+    # def list(self, request):
+    #     user_id = request.data.get('userId')
+    #     id = user_id
+    #     with connection.cursor() as cursor:
+    #         cursor.execute("SELECT * FROM app_password")
+    #         rows = cursor.fetchall()
+    #     print(rows)
+        
+    #     id_list = [row[0] for row in rows]
+    #     logpassword_list = [row[1] for row in rows]
+        
+    #     print(id in id_list)
+    #     if id in id_list:
+    #         index = id_list.index(id)
+    #         return JsonResponse({'status': 'User_Id_is_connected', 'message': 'Passwords do not match'})
+    #     else:
+    #         return JsonResponse({'status': 'Error', 'message': 'User not found'})
+        
+    def create(self, request):
         user_id = request.data.get('userId')
         id = user_id
         with connection.cursor() as cursor:
@@ -320,7 +338,6 @@ class LogPassword(viewsets.ViewSet):
             return JsonResponse({'status': 'User_Id_is_connected', 'message': 'Passwords do not match'})
         else:
             return JsonResponse({'status': 'Error', 'message': 'User not found'})
-        
 
 
 class LogPasswordLock(viewsets.ViewSet):
@@ -354,7 +371,8 @@ class LogPasswordLock(viewsets.ViewSet):
             else:
                 print("Password does not match")
                 return JsonResponse({'status': 'password_failure', 'message': 'Passwords do not match'})
-        
+        # elif len(id_list):
+            
         else:
             print("User ID not found")
             return JsonResponse({'status': 'Error', 'message': 'User not found'})
