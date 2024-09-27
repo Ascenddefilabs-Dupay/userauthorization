@@ -4,6 +4,7 @@ from io import BytesIO
 import base64
 from django.core.validators import RegexValidator
 from django.db.models import Max
+
 import random
 
 class Project(models.Model):
@@ -175,3 +176,4 @@ class FiatWallet(models.Model):
     class Meta:
         db_table = 'fiat_wallet'
         managed = False
+
