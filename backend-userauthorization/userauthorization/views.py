@@ -305,7 +305,6 @@ class FetchQRCodeView(View):
             return JsonResponse({'error': str(e)}, status=500)
 
         return JsonResponse({'qr_code': qr_code, 'email': email, 'mobile_number': mobile_number})
-    
 class LogPassword(viewsets.ViewSet):
     
     # def list(self, request):
@@ -383,8 +382,9 @@ class LogPasswordLock(viewsets.ViewSet):
             return JsonResponse({'status': 'Error', 'message': 'User not found'})
         
     def list(self, request):
-        user_id = request.data.get('userId')
+        user_id = request.query_params.get('userId')  
         id = user_id
+        print(id)
         with connection.cursor() as cursor:
             cursor.execute("SELECT * FROM app_password")
             rows = cursor.fetchall()
