@@ -22,6 +22,7 @@ router.register(r'recreatepasscode', RecreatePasscode, basename='recreatepasscod
 
 
 
+
 urlpatterns = [
     path('',include(router.urls)),
     path('fetch-qr-code/', FetchQRCodeView.as_view(), name='fetch_qr_code'),
