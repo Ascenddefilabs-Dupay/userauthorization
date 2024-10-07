@@ -566,3 +566,27 @@ class RecreatePasscode(viewsets.ViewSet):
             return Response({'success': f'Passcode for {email} updated successfully'}, status=200)
         except Exception as e:
             return Response({'error': str(e)})
+        
+def fetch_crypto_wallet_table(request, user_id=None):
+    with connection.cursor() as cursor:
+        # If user_id is provided, filter by user_id; otherwise, fetch all records
+        if user_id:
+            cursor.execute("""
+                SELECT wallet_id, sui_address, balance, user_id
+                FROM crypto_wallet_table
+                WHERE user_id = %s
+            """, [user_id])
+        else:
+            cursor.execute("SELECT wallet_id, sui_address, balance, user_id FROM crypto_wallet_table")
+
+        result = cursor.fetchall()
+
+        if not result:
+            return JsonResponse({'message': 'No records found'}, status=404)
+
+        # Get column names
+        columns = [col[0] for col in cursor.description]
+        # Map the data to dictionaries
+        data = [dict(zip(columns, row)) for row in result]
+
+    return JsonResponse(data, safe=False)
