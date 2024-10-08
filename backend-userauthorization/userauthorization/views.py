@@ -227,7 +227,10 @@ class RepasswordViewSet(viewsets.ModelViewSet):
         print(bcrypt.checkpw(retype_password.encode('utf-8'), stored_password_hash))
 
         if not bcrypt.checkpw(retype_password.encode('utf-8'), stored_password_hash):
+            
             return JsonResponse({'status': 'password_failure', 'message': 'Passwords do not match'})
+        else:
+            return JsonResponse({'status': 'password_match', 'message': 'Passwords match'})
 
         if not created:
             password_setting.retype_password = hashed_retype_password.decode('utf-8')
