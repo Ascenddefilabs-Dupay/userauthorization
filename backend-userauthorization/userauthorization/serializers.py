@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project,CustomUser,Notificationthings,Password,FiatWallet
+from .models import Project,CustomUser,FiatWallet
 
 
 
@@ -12,18 +12,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = '__all__'
-
-class NotificationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Notificationthings
-        fields = '__all__'
-
-class PasswordSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Password
-        fields = '__all__'
-
-
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
